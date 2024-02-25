@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 // import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const NavItems = [
@@ -48,6 +49,19 @@ const DropdownItems = [
 ]
 
 const NavBar = () => {
+    const navigate = useNavigate()
+    //handle route 
+    const handleSignUpRoute = ()=>{
+        navigate("/signup")
+
+    }
+
+    const handleSignInRoute = ()=>{
+        navigate("/signin")
+
+    }
+
+
   return (
     <>
         <div className='bg-white shadow-sm'>
@@ -112,7 +126,9 @@ const NavBar = () => {
                         </li>
                         {/* Sign Up button section */}
                         <li>
-                            <button className='flex justify-center items-center gap-2 bg-secondary text-xl h-[40px] text-white px-5 py-2 hover:scale-105 duration-300 rounded-lg'>
+                            <button className='flex justify-center items-center gap-2 bg-secondary text-xl h-[40px] text-white px-5 py-2 hover:scale-105 duration-300 rounded-lg'
+                            onClick={handleSignUpRoute}
+                            >
                                 <FaUserCircle />
                                 Sign Up
 
@@ -121,7 +137,9 @@ const NavBar = () => {
 
                         {/* Sign in button section */}
                         <li>
-                            <button className='flex justify-center items-center gap-2 bg-pink-500 text-xl h-[40px] text-white px-5 py-2 hover:scale-105 duration-300 rounded-lg'>
+                            <button className='flex justify-center items-center gap-2 bg-pink-500 text-xl h-[40px] text-white px-5 py-2 hover:scale-105 duration-300 rounded-lg'
+                            onClick={handleSignInRoute}
+                            >
                                 <FaUserCircle />
                                 Sign In
 
