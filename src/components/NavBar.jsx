@@ -62,7 +62,7 @@ const NavBar = () => {
                         {
                             NavItems.map(({id , name , link}) =>{
                                 return (
-                                    <li key={id}>
+                                    <li key={id} className='hidden md:block'>
                                         <Link to={link}
                                         className='inline-block hover:text-primary text-xl font-semibold'
                                         >{name}</Link>
@@ -74,7 +74,7 @@ const NavBar = () => {
                         }
 
                         {/* Dropdown cover */}
-                        <li className='cursor-pointer group relative'>
+                        <li className='cursor-pointer group relative hidden md:block'>
                             <Link to="/categories" className='inline-block hover:text-primary text-xl font-semibold'>
                                 <div className='flex items-center gap-[2px] py-2'>
                                     Categories

@@ -1,10 +1,11 @@
 import React from 'react'
 import PrimaryButton from '../utils/PrimaryButton'
-import back from "../assets/back.webp"
+import heroBg from "../assets/heroBg.png"
+import hero from "../assets/hero.png"
 
 //defining the style for the background 
 const Bgstyle = {
-    backgroundImage:`url(${back})`,
+    backgroundImage:`url(${heroBg})`,
     backgroundRepeat:"no-repeat",
     backgroundPosition:"center",
     backgroundSize:"cover",
@@ -31,7 +32,7 @@ const HeroBanner = () => {
                     </div>
                     {/* image content */}
                     <div className='relative z-30 order-1 sm:order-2'>
-                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='rounded-3xl w-full sm:scale-125 sm:translate-y-16'/>
+                        <img src={hero} alt="" className='rounded-3xl w-full sm:scale-125 sm:translate-y-16'/>
                     </div>
 
                 </div>
