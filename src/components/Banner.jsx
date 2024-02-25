@@ -47,13 +47,13 @@ const Banner = () => {
             </div>
 
             {/* fruits */}
-            <div className='absolute top-5 right-16 sm:bottom-0 sm:left-0 opacity-50 sm:opacity-100'>
+            <div className='absolute top-5 right-16 sm:bottom-0 sm:left-0  sm:opacity-100'>
                 <img src={leaf} alt="" className='max-w-[160px]'/>
             </div>
 
             
 
-            <div className='absolute bottom-16 left-16 sm:bottom-0 sm:left-0 opacity-50 sm:opacity-100'>
+            <div className='absolute bottom-16 left-16 sm:bottom-0 sm:left-0  sm:opacity-100'>
                 <img src={tomato} alt="" className='max-w-[280px]'/>
             </div>
 
