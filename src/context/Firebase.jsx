@@ -3,6 +3,9 @@ import { createContext } from 'react'
 import { initializeApp } from "firebase/app";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , GoogleAuthProvider , signInWithPopup ,  onAuthStateChanged} from "firebase/auth";
 import { useState , useEffect } from 'react';
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore"; 
+import { getStorage , ref , uploadBytes} from "firebase/storage";
 
 
 //create context
@@ -29,6 +32,11 @@ const auth = getAuth(app)
 //authorization using google
 const provider = new GoogleAuthProvider()
 
+//database 
+const db = getFirestore(app)
+
+//storage
+const storage = getStorage(app)
 
 //custom hook to create a connenction between the component and the state
 const useFirebase = ()=>{
@@ -67,8 +75,28 @@ export const FirebaseContextProvider = (props) =>{
     //check whether user is signed in or not
     const isLoggedIn = user ? true : false
 
+    //add menu to the database
+    const addMenus = async(itemName , description , price , category , coverPic)=>{
+        const imageRef = ref (storage ,`uploads/images/${Date.now()}-${coverPic.name}`)
+        const uploadResult = await uploadBytes(imageRef , coverPic)
+        await addDoc(collection(db , "menus") , {
+            itemName:itemName,
+            description:description,
+            price:price,
+            imageURL: uploadResult.ref.fullPath,
+            userId:user.uid,
+            userEmail:user.email,
+            displayName:user.displayName,
+            photoUrl:user.photoURL,
+            category:category,
+
+
+        })
+
+    }
+
     return(
-        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn}}>
+        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus}}>
             {props.children}
 
 
