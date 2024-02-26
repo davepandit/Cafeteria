@@ -19,8 +19,8 @@ const NavItems = [
     },
     {
         id:3,
-        name:"Contact",
-        link:'/contact'
+        name:"Cart",
+        link:'/cart'
     },
 
 ]

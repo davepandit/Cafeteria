@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 import NavBar from './components/NavBar'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
-import MidCart from './pages/MidCart'
+import Testing from './pages/Testing'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddMenu from './pages/AddMenu'
 import Menu from './pages/Menu'
@@ -33,7 +33,8 @@ function App() {
         <Route path='/buy/orders' element={<Orders />}/>
         <Route path='/beverages' element={<Beverages />}/>
         <Route path='/snacks' element={<Snacks />}/>
-        {/* <Route path='/cart' element={<Cart />}/> */}
+        <Route path='/cart' element={<Cart />}/>
+        <Route path='/testing' element={<Testing />}/>
       </Routes>
       <Footer />
 

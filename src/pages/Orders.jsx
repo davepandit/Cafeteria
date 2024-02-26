@@ -1,10 +1,18 @@
 import React from 'react'
 
 const Orders = () => {
+
+  const handlePayment = ()=>{
+    alert("Payment successful")
+  }
   return (
     <>
-        <div className='mt-5 font-bold text-3xl'>
-            Under Construction......
+        <div className='mt-5 font-bold text-3xl container'>
+            <button className='bg-red-500 rounded-lg px-4 py-2 text-white text-xl'
+            onClick={handlePayment}
+            >
+              Proceed for payment
+            </button>
         </div>   
 
 

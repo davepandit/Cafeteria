@@ -1,8 +1,14 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 const Cards = () => {
+  const navigate = useNavigate()
+  const handleRoute = ()=>{
+    navigate("/testing")
+    
+  }
   return (
     <>
         <Card style={{ width: '18rem' }}>
@@ -13,7 +19,9 @@ const Cards = () => {
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'>Go somewhere</Button>
+                <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'
+                onClick={handleRoute}
+                >Go somewhere</Button>
             </Card.Body>
         </Card>    
     </>
