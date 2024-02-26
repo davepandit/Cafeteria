@@ -11,6 +11,8 @@ import AddMenu from './pages/AddMenu'
 import Menu from './pages/Menu'
 import Details from './pages/Details'
 import Orders from './pages/Orders'
+import Beverages from './pages/Beverages'
+import Snacks from './pages/Snacks'
 
 
 function App() {
@@ -23,11 +25,13 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/signin' element={<SignIn/>}/>
-        <Route path='/cart' element={<Cart />}/>
+        <Route path='/menu/cart/:menuId' element={<Cart />}/>
         <Route path='/admin/additems' element={<AddMenu />}/>
         <Route path='/menu' element={<Menu />}/>
         <Route path='/details/view/:menuId' element={<Details />}/>
         <Route path='/buy/orders' element={<Orders />}/>
+        <Route path='/beverages' element={<Beverages />}/>
+        <Route path='/snacks' element={<Snacks />}/>
       </Routes>
       <Footer />
 

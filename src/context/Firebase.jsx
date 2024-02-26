@@ -6,7 +6,7 @@ import { useState , useEffect } from 'react';
 import { getFirestore , getDocs} from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
 import { getStorage , ref , uploadBytes , getDownloadURL} from "firebase/storage";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc , query, where } from "firebase/firestore";
 
 
 //create context
@@ -125,9 +125,18 @@ export const FirebaseContextProvider = (props) =>{
         return result
     }
 
+    //push data into the cart
+    const pushDataIntoCart = async(id)=>{
+        const docRef = doc(db , "menus" , id)
+        const result = await getDoc(docRef)
+        return result
+
+    }
+    
+
 
     return(
-        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder}}>
+        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder , pushDataIntoCart }}>
             {props.children}
 
 
