@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn'
 import Cart from './pages/Cart'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddMenu from './pages/AddMenu'
+import Menu from './pages/Menu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/admin/additems' element={<AddMenu />}/>
+        <Route path='/menu' element={<Menu />}/>
       </Routes>
       <Footer />
 

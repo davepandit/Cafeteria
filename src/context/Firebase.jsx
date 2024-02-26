@@ -3,9 +3,9 @@ import { createContext } from 'react'
 import { initializeApp } from "firebase/app";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , GoogleAuthProvider , signInWithPopup ,  onAuthStateChanged} from "firebase/auth";
 import { useState , useEffect } from 'react';
-import { getFirestore } from "firebase/firestore";
+import { getFirestore , getDocs} from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
-import { getStorage , ref , uploadBytes} from "firebase/storage";
+import { getStorage , ref , uploadBytes , getDownloadURL} from "firebase/storage";
 
 
 //create context
@@ -95,8 +95,19 @@ export const FirebaseContextProvider = (props) =>{
 
     }
 
+    //list all the menus
+    const listAllMenus = ()=>{
+        return getDocs(collection(db , "menus"))
+    }
+    //get image url
+    const getImage = (path)=>{
+        return getDownloadURL(ref(storage , path))
+
+    }
+
+
     return(
-        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus}}>
+        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage}}>
             {props.children}
 
 

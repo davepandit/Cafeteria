@@ -14,8 +14,8 @@ const NavItems = [
     },
     {
         id:2,
-        name:"About",
-        link:'/about'
+        name:"Menu",
+        link:'/menu'
     },
     {
         id:3,
@@ -68,7 +68,8 @@ const NavBar = () => {
             <div className='container flex justify-between py-4 sm:py-3'>
                 {/* logo section */}
                 <div className='font-bold text-3xl'>
-                    Cafeteria
+                    <Link to="/">Cafeteria</Link>
+                    
                 </div>
                 {/* other parts of the NavBar */}
                 <div>
