@@ -137,10 +137,16 @@ export const FirebaseContextProvider = (props) =>{
         return querySnapshot;
     }
     
+    //for snacks dropdown 
+    const snacks = async()=>{
+        const q = query(collection(db, "menus"), where("category", "==", "sna"));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot;
+    }
 
 
     return(
-        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder ,  array , beverages }}>
+        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder ,  array , beverages , snacks }}>
             {props.children}
 
 

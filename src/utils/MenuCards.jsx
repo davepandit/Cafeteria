@@ -38,13 +38,9 @@ const MenuCards = (props) => {
                     The price of the {props.category} is Rs.
                 {props.price}
                 </Card.Text>
-                <div className='flex justify-evenly'>
-                    <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'
-                    onClick={handleRouting}
-                    >View</Button>
-
-                    
-                </div>
+                <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'
+                onClick={handleRouting}
+                >View</Button>    
             </Card.Body>
         </Card>    
     </>
