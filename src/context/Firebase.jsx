@@ -76,6 +76,9 @@ export const FirebaseContextProvider = (props) =>{
     //check whether user is signed in or not
     const isLoggedIn = user ? true : false
 
+    //a global array
+    let array = []
+
     //add menu to the database
     const addMenus = async(itemName , description , price , category , coverPic)=>{
         const imageRef = ref (storage ,`uploads/images/${Date.now()}-${coverPic.name}`)
@@ -125,18 +128,19 @@ export const FirebaseContextProvider = (props) =>{
         return result
     }
 
-    //push data into the cart
-    const pushDataIntoCart = async(id)=>{
-        const docRef = doc(db , "menus" , id)
-        const result = await getDoc(docRef)
-        return result
+    
 
+    //for beverages dropdown
+    const beverages = async()=>{
+        const q = query(collection(db, "menus"), where("category", "==", "bev"));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot;
     }
     
 
 
     return(
-        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder , pushDataIntoCart }}>
+        <FirebaseContext.Provider value={{signupWithEmailAndPassword ,  signinWithEmailAndPassword , signinWithGoogle , isLoggedIn , addMenus , listAllMenus , getImage , getMenuById , placeOrder ,  array , beverages }}>
             {props.children}
 
 

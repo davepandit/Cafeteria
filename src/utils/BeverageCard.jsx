@@ -5,7 +5,7 @@ import { useState , useEffect } from 'react';
 import { useFirebase } from '../context/Firebase';
 import { useNavigate } from 'react-router-dom';
 
-const MenuCards = (props) => {
+const BeverageCard = (props) => {
 
     const [url , setUrl] = useState(null)
     //establishing a link between the component and the context
@@ -51,4 +51,4 @@ const MenuCards = (props) => {
   )
 }
 
-export default MenuCards
+export default BeverageCard
