@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState , useEffect } from 'react';
 import { useFirebase } from '../context/Firebase';
+import { useNavigate } from 'react-router-dom';
 
 const MenuCards = (props) => {
 
@@ -10,9 +11,18 @@ const MenuCards = (props) => {
     //establishing a link between the component and the context
     const firebase = useFirebase()
 
+    //navigate instance
+    const navigate = useNavigate()
+
     useEffect(()=>{
         firebase.getImage(props.imageURL).then((url)=>(setUrl(url)))
     },[])
+
+    //handle ti click functionality
+    const handleRouting =()=>{
+        navigate(`/details/view/${props.id}`)
+    }
+
   return (
     <>
         <Card style={{ width: '18rem', margin:"20px"}}>
@@ -26,7 +36,9 @@ const MenuCards = (props) => {
                     The price of the {props.category} is Rs.
                 {props.price}
                 </Card.Text>
-                <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'>Buy</Button>
+                <Button variant="primary" className='bg-blue-500 text-white rounded-lg px-4 py-2 mt-4'
+                onClick={handleRouting}
+                >View</Button>
             </Card.Body>
         </Card>    
     </>

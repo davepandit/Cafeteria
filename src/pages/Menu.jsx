@@ -21,7 +21,7 @@ const Menu = () => {
             <div className='grid grid-cols-3 '>
 
                     {menus.map((menu)=>(
-                        <MenuCards key={menu.id} {...menu.data()} />
+                        <MenuCards key={menu.id} id={menu.id} {...menu.data()} />
                         
 
                     ))}

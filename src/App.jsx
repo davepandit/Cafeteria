@@ -9,6 +9,9 @@ import Cart from './pages/Cart'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddMenu from './pages/AddMenu'
 import Menu from './pages/Menu'
+import Details from './pages/Details'
+import Orders from './pages/Orders'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +26,8 @@ function App() {
         <Route path='/cart' element={<Cart />}/>
         <Route path='/admin/additems' element={<AddMenu />}/>
         <Route path='/menu' element={<Menu />}/>
+        <Route path='/details/view/:menuId' element={<Details />}/>
+        <Route path='/buy/orders' element={<Orders />}/>
       </Routes>
       <Footer />
 
