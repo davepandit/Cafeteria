@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Orders = () => {
-
+  const navigate = useNavigate()
   const handlePayment = ()=>{
+    navigate("/menu")
     alert("Payment successful")
   }
   return (
